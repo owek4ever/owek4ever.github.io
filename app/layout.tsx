@@ -10,37 +10,37 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://ryhar.my.id"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://owek4ever.github.io"),
   title: {
-    default: "RyHar | Portfolio",
-    template: "%s | RyHar Portfolio",
+    default: "Ilyass Chakroun | Portfolio",
+    template: "%s | Ilyass Chakroun Portfolio",
   },
-  description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
-  keywords: ["RyHar", "Portfolio", "Software Developer", "Web Development", "Backend", "Frontend", "Next.js", "React", "Node.js"],
-  authors: [{ name: "RyHar" }],
-  creator: "RyHar",
+  description: "Personal portfolio of Ilyass Chakroun. Software Engineering student specializing in full-stack development, ERP systems, and AI-driven analytics.",
+  keywords: ["Ilyass Chakroun", "Portfolio", "Software Engineer", "Full Stack Developer", "Web Development", "Dolibarr ERP", "React Native", "Python", "Next.js"],
+  authors: [{ name: "Ilyass Chakroun" }],
+  creator: "Ilyass Chakroun",
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     url: "/",
-    title: "RyHar | Portfolio",
-    description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
-    siteName: "RyHar Portfolio",
+    title: "Ilyass Chakroun | Portfolio",
+    description: "Personal portfolio of Ilyass Chakroun. Software Engineering student specializing in full-stack development, ERP systems, and AI-driven analytics.",
+    siteName: "Ilyass Chakroun Portfolio",
     images: [
       {
         url: "/images/hero.jpg",
         width: 1200,
         height: 630,
-        alt: "RyHar Portfolio",
+        alt: "Ilyass Chakroun Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RyHar | Portfolio",
-    description: "Personal portfolio of RyHar. Software Developer specializing in Next.js, Node.js, and modern web development.",
+    title: "Ilyass Chakroun | Portfolio",
+    description: "Personal portfolio of Ilyass Chakroun. Software Engineering student specializing in full-stack development, ERP systems, and AI-driven analytics.",
     images: ["/images/hero.jpg"],
-    creator: "@RyHar",
+    creator: "@owek4ever",
   },
   icons: {
     icon: "/images/hero.jpg",

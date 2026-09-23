@@ -39,17 +39,17 @@ export default function Contact() {
   // Initialize Chat from LocalStorage
   useEffect(() => {
     // Check for saved name
-    const savedName = localStorage.getItem("ryhar_chat_name")
+    const savedName = localStorage.getItem("ilyass_chat_name")
     if (savedName) {
       setUserName(savedName)
     } else {
       const newName = `Guest-${Math.floor(Math.random() * 10000)}`
       setUserName(newName)
-      localStorage.setItem("ryhar_chat_name", newName)
+      localStorage.setItem("ilyass_chat_name", newName)
     }
 
     // Check for saved messages
-    const savedMessages = localStorage.getItem("ryhar_chat_messages")
+    const savedMessages = localStorage.getItem("ilyass_chat_messages")
     if (savedMessages) {
       try {
         const parsed = JSON.parse(savedMessages)
@@ -73,7 +73,7 @@ export default function Contact() {
       {
         id: "welcome-msg",
         sender: "bot",
-        text: "Halo! Saya adalah asisten AI RyHar. Ada yang bisa saya bantu terkait portofolio, pengalaman, atau project RyHar?",
+        text: "Hello! I'm Ilyass's AI assistant. How can I help you regarding his portfolio, experience, or projects?",
         timestamp: new Date()
       }
     ])
@@ -82,7 +82,7 @@ export default function Contact() {
   // Save Messages to LocalStorage whenever they change
   useEffect(() => {
     if (chatMessages.length > 0) {
-      localStorage.setItem("ryhar_chat_messages", JSON.stringify(chatMessages))
+      localStorage.setItem("ilyass_chat_messages", JSON.stringify(chatMessages))
     }
   }, [chatMessages])
 
@@ -110,39 +110,38 @@ export default function Contact() {
     const history = [
       {
         role: "system" as const,
-        content: `System Context: Kamu adalah RyHar Assistant, asisten AI pribadi untuk Ahmad Rizki Hartawan (RyHar). Tugasmu adalah menjawab pertanyaan pengunjung website portofolio RyHar dengan ramah, profesional, dan informatif menggunakan bahasa Indonesia.
-        
-Gunakan panduan informasi berikut tentang RyHar untuk menjawab pertanyaan:
+        content: `System Context: You are Ilyass's AI Assistant, a personal AI assistant for Ilyass Chakroun. Your job is to answer visitor questions about Ilyass's portfolio with friendliness, professionalism, and informativeness.
 
-1. **Profil & Kontak**:
-   - Nama: Ahmad Rizki Hartawan (RyHar)
-   - Peran: Fullstack Web Developer dengan pengalaman 2+ tahun
-   - Pendidikan: Universitas Multi Data Palembang (IPK: 3.84)
-   - Lokasi: Palembang, Indonesia
-   - Email: a.rizkihartawan04@gmail.com
-   - WhatsApp/Telepon: +62 895-0818-8642 (wa.me/6289508188642)
-   - LinkedIn: linkedin.com/in/rizkihartawan/
-   - Instagram: @rizki_hr4 (instagram.com/rizki_hr4)
-   - TikTok: @ryhar.dev (tiktok.com/@ryhar.dev)
-   - GitHub: github.com/RyHarJr
-   - Pendekatan: Mengutamakan clean code, desain responsif, dan UX yang intuitif.
+Use the following profile information about Ilyass to answer questions:
+
+1. **Profile & Contact**:
+   - Name: Ilyass Chakroun
+   - Role: Software Engineering Student & Full Stack Developer
+   - Education: ESPIN - École Supérieure Polytechnique Internationale Privée (License in Software Engineering, graduating June 2026)
+   - Location: Sfax, Tunisia
+   - Email: aliasabdelkader@gmail.com
+   - Phone: +216 29899385
+   - LinkedIn: linkedin.com/in/ilyass-chakrouna920151a5
+   - GitHub: github.com/owek4ever
+   - Portfolio: owek4ever.github.io
 
 2. **Tech Stack**:
-   - Frontend: React, Next.js, Tailwind CSS, TypeScript
-   - Backend & Database: Node.js, Express.js, MySQL, MongoDB (JavaScript sebagai bahasa utama)
+   - Languages: PHP, Python, Java, JavaScript, C++
+   - Frameworks: Dolibarr ERP/CRM, React Native/Expo, Django, FastAPI, Next.js/React, n8n
+   - Databases: MySQL, MariaDB, PostgreSQL (TimescaleDB, pgvector), Redis
+   - Tools: Docker, Git, npm, Linux, Playwright
 
-3. **Pengalaman Kerja**:
-   - Freelance Full Stack Web Developer (2025 - present): Mengembangkan web app kustom untuk berbagai klien.
-   - Litbang IT HIMSI (2026 - present): Operator IT dan Web Developer untuk organisasi.
-   - MDPTV (2024 - present): Fotografi, Videografi, & Web Developer.
-   - Radio Republik Indonesia (2024): Magang pemeliharaan infrastruktur broadcasting dan IT.
+3. **Work Experience**:
+   - Software Engineering Intern (PFE) at Optimalogistic (Feb 2026 - Jun 2026): Built a three-part fleet management ecosystem on Dolibarr ERP (Flotte module, ChatFlotte chat system, DoliTrack React Native app).
+   - Software Engineering Intern at Tunisie Telecom (Jul 2025 - Sep 2025): Built Employee Portal Management System with PHP/MySQL.
+   - Software Engineering Intern at Ceram Square Hmmami Sodimac (Jul 2026 - Sep 2026): Built MarketIntel distributed competitive-intelligence platform with Python, FastAPI, Next.js, PostgreSQL.
 
-4. **Proyek Utama**:
-   - JadibotWA (jadibotwa.xyz) - Platform automasi WhatsApp tanpa kode.
-   - RyHar Panel (ryhar-panel.my.id) - Landing page & platform manajemen layanan hosting.
-   - RyHar Portfolio (ryhar.my.id) - Website portofolio pribadi.
+4. **Projects**:
+   - Flotte - Fleet Management ERP Module (Dolibarr ERP)
+   - DoliTrack - Driver Tracking App (React Native/Expo)
+   - MarketIntel - Competitive Intelligence Platform (Python, FastAPI, Next.js)
 
-Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada di profil ini, dan selalu bersikap ramah.`
+Rules: Answer directly, don't add information not in this profile, and always be friendly.`
       },
       ...historyMessages.map(msg => ({
         role: msg.sender === "user" ? "user" as const : "assistant" as const,
@@ -235,11 +234,11 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             {/* Google Maps Embed */}
             <div className="bg-background border border-text-secondary/20 rounded-3xl overflow-hidden h-[400px] lg:h-auto min-h-[400px] shadow-xl hover:border-text-primary transition-colors duration-500 relative group">
               <div className="absolute top-4 left-4 z-10 bg-background/90 backdrop-blur-md px-4 py-2 rounded-xl border border-text-secondary/20 shadow-lg pointer-events-none">
-                <p className="text-sm font-bold text-text-primary">📍 Mami Steak Gunting</p>
-                <p className="text-xs font-medium text-text-secondary">Palembang</p>
+                <p className="text-sm font-bold text-text-primary">📍 Sfax, Tunisia</p>
+                <p className="text-xs font-medium text-text-secondary">ESPIN</p>
               </div>
               <iframe
-                src="https://maps.google.com/maps?q=-2.9843272,104.7208314&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=34.7406,10.7603&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
                 allowFullScreen
                 loading="lazy"
@@ -250,7 +249,7 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             {/* Social Links Cards */}
             <div className="grid grid-cols-3 sm:flex sm:flex-col gap-4">
               {/* GitHub */}
-              <a href="https://github.com/RyHarJr" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-secondary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
+              <a href="https://github.com/owek4ever" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-secondary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-text-primary group-hover:scale-110 transition-all duration-300">
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -259,14 +258,14 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
                   </div>
                   <div className="hidden sm:block">
                     <h4 className="text-lg font-bold text-text-primary">GitHub</h4>
-                    <p className="text-sm font-medium text-text-secondary">RyHarJr</p>
+                    <p className="text-sm font-medium text-text-secondary">owek4ever</p>
                   </div>
                 </div>
                 <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
 
               {/* Email */}
-              <a href="mailto:a.rizkihartawan04@gmail.com" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-secondary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
+              <a href="mailto:aliasabdelkader@gmail.com" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-secondary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-text-primary group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -275,14 +274,14 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
                   </div>
                   <div className="hidden sm:block">
                     <h4 className="text-lg font-bold text-text-primary">Email</h4>
-                    <p className="text-sm font-medium text-text-secondary">a.rizkihartawan04@gmail.com</p>
+                    <p className="text-sm font-medium text-text-secondary">aliasabdelkader@gmail.com</p>
                   </div>
                 </div>
                 <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
 
               {/* WhatsApp */}
-              <a href="https://wa.me/6289508188642" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-[#25D366] hover:bg-[#25D366]/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
+              <a href="https://wa.me/21629899385" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-[#25D366] hover:bg-[#25D366]/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-[#25D366] group-hover:scale-110 transition-all duration-300">
                     <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -291,14 +290,14 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
                   </div>
                   <div className="hidden sm:block">
                     <h4 className="text-lg font-bold text-text-primary">WhatsApp</h4>
-                    <p className="text-sm font-medium text-text-secondary">+62 895-0818-8642</p>
+                    <p className="text-sm font-medium text-text-secondary">+216 29899385</p>
                   </div>
                 </div>
                 <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-[#25D366] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
 
               {/* LinkedIn */}
-              <a href="https://www.linkedin.com/in/rizkihartawan/" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-[#0077b5] hover:bg-[#0077b5]/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
+              <a href="https://www.linkedin.com/in/ilyass-chakrouna920151a5" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-[#0077b5] hover:bg-[#0077b5]/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-[#0077b5] group-hover:scale-110 transition-all duration-300">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -307,39 +306,23 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
                   </div>
                   <div className="hidden sm:block">
                     <h4 className="text-lg font-bold text-text-primary">LinkedIn</h4>
-                    <p className="text-sm font-medium text-text-secondary">Rizki Hartawan</p>
+                    <p className="text-sm font-medium text-text-secondary">Ilyass Chakroun</p>
                   </div>
                 </div>
                 <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-[#0077b5] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
 
-              {/* Instagram */}
-              <a href="https://instagram.com/rizki_hr4" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-[#E1306C] hover:bg-[#E1306C]/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-[#E1306C] group-hover:scale-110 transition-all duration-300">
-                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </div>
-                  <div className="hidden sm:block">
-                    <h4 className="text-lg font-bold text-text-primary">Instagram</h4>
-                    <p className="text-sm font-medium text-text-secondary">@rizki_hr4</p>
-                  </div>
-                </div>
-                <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-[#E1306C] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </a>
-
-              {/* TikTok */}
-              <a href="https://tiktok.com/@ryhar.dev" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-primary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
+              {/* Portfolio */}
+              <a href="https://owek4ever.github.io" target="_blank" rel="noopener noreferrer" className="group bg-background border border-text-secondary/20 rounded-2xl p-4 sm:p-6 flex items-center justify-center sm:justify-between hover:border-text-primary hover:bg-text-primary/5 transition-all duration-300 shadow-sm hover:shadow-md aspect-square sm:aspect-auto">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-text-secondary/10 flex items-center justify-center text-text-primary group-hover:text-text-primary group-hover:scale-110 transition-all duration-300">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.95-.59 3.86-1.66 5.43-1.4 2.05-3.66 3.39-6.16 3.65-2.52.27-5.11-.27-7.23-1.66-2.09-1.37-3.52-3.48-4.04-5.89-.52-2.4-.1-4.95 1.15-7.05 1.25-2.11 3.33-3.67 5.71-4.24 2.2-.54 4.54-.31 6.6.62v4.11c-1.37-.62-2.92-.81-4.38-.49-1.46.32-2.78 1.16-3.66 2.37-.87 1.21-1.22 2.76-1.01 4.24.2 1.49.99 2.82 2.15 3.75 1.16.94 2.7 1.34 4.18 1.09 1.49-.24 2.83-1.04 3.76-2.2 1.01-1.25 1.47-2.87 1.47-4.47V.02z" />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
                   </div>
                   <div className="hidden sm:block">
-                    <h4 className="text-lg font-bold text-text-primary">TikTok</h4>
-                    <p className="text-sm font-medium text-text-secondary">@ryhar.dev</p>
+                    <h4 className="text-lg font-bold text-text-primary">Portfolio</h4>
+                    <p className="text-sm font-medium text-text-secondary">owek4ever.github.io</p>
                   </div>
                 </div>
                 <svg className="hidden sm:block w-5 h-5 text-text-secondary group-hover:text-text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -374,7 +357,7 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-thirdary flex items-center justify-center text-text-primary font-black border border-text-secondary/10">AI</div>
               <div>
-                <h3 className="text-lg font-black text-text-primary tracking-tight leading-none">RyHar Assistant</h3>
+                <h3 className="text-lg font-black text-text-primary tracking-tight leading-none">Ilyass Assistant</h3>
                 <span className="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
                   <span className="w-2 h-2 rounded-full bg-green-500 block animate-pulse"></span> Online
                 </span>
