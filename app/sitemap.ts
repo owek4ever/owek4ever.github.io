@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryhar.my.id"
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://owek4ever.github.io"
 
   return [
     {
@@ -10,6 +10,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 1,
     },
-    // Add additional routes here if you add more pages in the future
   ]
 }
